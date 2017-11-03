@@ -5,16 +5,11 @@ module QuizGem
   class Query < Thor::Group
     desc 'A single query in a Quiz'
 
-    def one
-      puts 1
-    end
-
-    def two
-      puts 2
-    end
-
-    def three
-      puts 3
+    def main
+      # Ask Question
+      # Wait for Answer
+      # Compare result to solution
+      # Increment score if correct
     end
   end
 end

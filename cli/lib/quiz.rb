@@ -2,8 +2,9 @@
 
 require 'thor'
 
-require File.expand_path('lib/query', Dir.pwd)
 require File.expand_path('lib/test', Dir.pwd)
+require File.expand_path('lib/practice', Dir.pwd)
+require File.expand_path('lib/flashcards', Dir.pwd)
 
 # Provides learning and quizzing functionality from json databases
 module QuizGem
@@ -11,7 +12,7 @@ module QuizGem
   class Quiz < Thor
     desc 'learn FILE', 'Learn the questions in provided FILE'
     def learn(file)
-      puts "You supplied the file: #{file}"
+      invoke QuizGem::Practice, [file]
     end
 
     desc 'test FILE', 'Test yourself with the questions provided in the FILE'
@@ -24,9 +25,8 @@ module QuizGem
 
     desc 'flashcards FILE', 'Use a flashcard method
    to learn the questions in provided FILE'
-
     def flashcards(file)
-      puts "You supplied the file: #{file}"
+      invoke QuizGem::Flashcards, [file]
     end
   end
 end

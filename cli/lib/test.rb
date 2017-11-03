@@ -11,9 +11,7 @@ module QuizGem
     class_option :time, aliases: '-t',
                         desc: 'Set a time limit for the quiz',
                         type: 'numeric'
-
-
-    def two
+    def main
       puts "You supplied the file: #{file}"
       timer = options[:time]
 
@@ -28,19 +26,11 @@ module QuizGem
       end
 
       # Start Quiz loop
+      # Invoke Query => Correct/Wrong
 
-      # Ask Question
-      # Wait for Answer
-      # Compare result to solution
-      # Increment score if correct
       # If timer == true, and Time.now - start > timer, end Quiz. Print sad face
 
       # Compare score to total score and show
-      puts 2
-    end
-
-    def three
-      puts 3
     end
   end
 end
