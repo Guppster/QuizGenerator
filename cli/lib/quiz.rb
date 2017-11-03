@@ -2,6 +2,9 @@
 
 require 'thor'
 
+require File.expand_path('lib/query', Dir.pwd)
+require File.expand_path('lib/test', Dir.pwd)
+
 # Provides learning and quizzing functionality from json databases
 module QuizGem
   # Creates the CLI
@@ -16,27 +19,7 @@ module QuizGem
                          desc: 'Set a time limit for the quiz',
                          type: 'numeric'
     def test(file)
-      puts "You supplied the file: #{file}"
-      timer = options[:time]
-
-      # Read and Parse the JSON
-
-      if timer
-        puts 'This will be a timed test!'
-        start = Time.now
-      else
-        puts 'This test will not be timed'
-      end
-
-      # Start Quiz loop
-
-      # Ask Question
-      # Wait for Answer
-      # Compare result to solution
-      # Increment score if correct
-      # If timer == true, and Time.now - start > timer, end Quiz. Print sad face
-
-      # Compare score to total score and show
+      invoke QuizGem::Test, [file], time: options[:time]
     end
 
     desc 'flashcards FILE', 'Use a flashcard method
@@ -47,5 +30,3 @@ module QuizGem
     end
   end
 end
-
-Quiz.start

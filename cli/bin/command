@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require File.expand_path('lib/quiz', Dir.pwd)
+QuizGem::Quiz.start
